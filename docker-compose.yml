@@ -1,0 +1,10 @@
+version: '3.6'
+
+services:
+    semantic-parser:
+        build: .
+        volumes:
+            - .:/code
+        command: bash -c "mvn install -Dmaven.repo.local=/code/semantic-parser/repository && python3 run.py server"
+        ports:
+            - "4000:1233"
